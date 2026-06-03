@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  .category-btn {
+    background: #dc2626;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+
+  .category-btn:hover {
+    background: #b91c1c;
+  }
+</style>
+</head>
+
+<body class="bg-black text-white min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between px-6 py-4 bg-black sticky top-0 z-50">
+    <h1 class="text-red-600 text-3xl font-bold">NETFLIX</h1>
+
+    <div class="flex gap-2">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search movies..."
+        class="px-4 py-2 rounded bg-gray-800 text-white outline-none"
+      />
+
+      <button
+        id="searchBtn"
+        class="bg-red-600 px-4 py-2 rounded font-semibold hover:bg-red-700"
+      >
+        Search
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="h-[70vh] bg-cover bg-center flex items-end p-8">
+    <div class="max-w-2xl">
+      <h2 id="heroTitle" class="text-5xl font-bold mb-4">Loading...</h2>
+      <p id="heroOverview" class="text-gray-200 mb-4"></p>
+      <button
+        id="heroTrailerBtn"
+        class="bg-red-600 px-6 py-3 rounded font-bold hover:bg-red-700"
+      >
+        ▶ Watch Trailer
+      </button>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="px-6 py-4">
+    <div class="flex gap-3 flex-wrap">
+      <button onclick="loadCategory(28)" class="category-btn">Action</button>
+      <button onclick="loadCategory(35)" class="category-btn">Comedy</button>
+      <button onclick="loadCategory(27)" class="category-btn">Horror</button>
+      <button onclick="loadCategory(10749)" class="category-btn">Romance</button>
+      <button onclick="loadCategory(878)" class="category-btn">Sci-Fi</button>
+    </div>
+  </section>
+
+  <!-- Movies -->
+  <main class="px-6 pb-10">
+    <h2 id="sectionTitle" class="text-2xl font-bold mb-4">Trending Movies</h2>
+
+    <div
+      id="moviesContainer"
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5"
+    ></div>
+  </main>
+
+  <!-- Trailer Modal -->
+  <div
+    id="trailerModal"
+    class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4"
+  >
+    <div class="bg-gray-900 rounded-xl w-full max-w-3xl p-4 relative">
+      <button
+        id="closeModal"
+        class="absolute top-2 right-4 text-3xl text-white"
+      >
+        ✖
+      </button>
+
+      <iframe
+        id="trailerFrame"
+        class="w-full h-[400px] rounded-lg mt-8"
+        src=""
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
